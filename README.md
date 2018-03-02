@@ -1,6 +1,6 @@
 # Acereca's build of st - the simple (suckless) terminal
 
-Forked from [http://github.com/lukexyz/st](https://github.com/lukexyz/st)
+Forked from [http://github.com/lukesmithxyz/st](https://github.com/lukesmithxyz/st)
 
 #From his README:
 
