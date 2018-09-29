@@ -6,7 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char font[] = "mono:pixelsize=14:antialias=true:autohint=true";
-static char font[] = "Droid Sans Mono for Powerline:pixelsize=13:antialias=true:autohint=true";
+static char font[] = "Droid Sans Mono for Powerline:pixelsize=15:antialias=true:autohint=true";
+//static char font[] = "Fira Code:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = 0;
 
 /*
@@ -43,7 +44,7 @@ static unsigned int tripleclicktimeout = 600;
 static int allowaltscreen = 1;
 
 /* frames per second st should at maximum draw to the screen */
-static unsigned int xfps = 60;
+static unsigned int xfps = 120;
 static unsigned int actionfps = 30;
 
 /*
@@ -84,27 +85,32 @@ static char termname[] = "st-256color";
 static unsigned int tabspaces = 4;
 
 /* bg opacity */
-static const int alpha = 0xff;
+static const int alpha = 0xf1;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* solarized dark */
-	"#21252B",  /*  0: black    */
-	"#E06C75",  /*  1: red      */
-	"#98C379",  /*  2: green    */
-	"#D19A66",  /*  3: yellow   */
-	"#61AFEF",  /*  4: blue     */
-	"#C678DD",  /*  5: magenta  */
-	"#56B6C2",  /*  6: cyan     */
-	"#ABB2BF",  /*  7: white    */
-	"#5C6370",  /*  8: brblack  */
-	"#E06C75",  /*  9: brred    */
-	"#98C379",  /* 10: brgreen  */
-	"#D19A66",  /* 11: bryellow */
-	"#61AFEF",  /* 12: brblue   */
-	"#C678DD",  /* 13: brmagenta*/
-	"#56B6C2",  /* 14: brcyan   */
-	"#FFFFFF",  /* 15: brwhite  */
+	"#073642",  /*  0: black    */
+	"#dc322f",  /*  1: red      */
+	"#859900",  /*  2: green    */
+	"#b58900",  /*  3: yellow   */
+	"#268bd2",  /*  4: blue     */
+	"#d33682",  /*  5: magenta  */
+	"#2aa198",  /*  6: cyan     */
+	"#eee8d5",  /*  7: white    */
+	"#002b36",  /*  8: brblack  */
+	"#cb4b16",  /*  9: brred    */
+	"#586e75",  /* 10: brgreen  */
+	"#ff8a00",  /* 11: bryellow */
+	"#839496",  /* 12: brblue   */
+	"#6c71c4",  /* 13: brmagenta*/
+	"#93a1a1",  /* 14: brcyan   */
+	"#fdf6e3",  /* 15: brwhite  */
+	"black",
+
+    [255] = 0,
+
+    "#222e3a",
 };
 
 /* Terminal colors for alternate (light) palette */
@@ -134,8 +140,8 @@ static const char *altcolorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 static unsigned int defaultfg = 7;
-static unsigned int defaultbg = 0;
-static unsigned int defaultcs = 3;
+static unsigned int defaultbg = 256;
+static unsigned int defaultcs = 11;
 static unsigned int defaultrcs = 15;
 
 /*
@@ -201,13 +207,13 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,     XK_V,           clippaste,      {.i =  0} },
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
 	{ MODKEY,               XK_Control_L,   iso14755,       {.i =  0} },
-  	{ MODKEY,           	XK_Tab,			swapcolors,		{.i =  0} },
+  	{ MODKEY,           	XK_Tab,		swapcolors,	{.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ MODKEY,            	XK_k,			kscrollup,      {.i =  1} },
-	{ MODKEY,            	XK_j,		 	kscrolldown,    {.i =  1} },
-	{ MODKEY,				XK_u,			kscrollup,      {.i = -1} },
-	{ MODKEY,				XK_d,			kscrolldown,    {.i = -1} },
+	{ MODKEY,            	XK_k,  		kscrollup,      {.i = 1} },
+	{ MODKEY,            	XK_j,   	kscrolldown,    {.i = 1} },
+	{ MODKEY,		XK_u,		kscrollup,      {.i = -1} },
+	{ MODKEY,		XK_d,		kscrolldown,    {.i = -1} },
 };
 
 /*
